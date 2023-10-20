@@ -2,8 +2,6 @@
 #include <string>
 #include <cmath>
 
-const std::string exit_command = "exit";
-
 bool is_number(std::string s)
 {
     if (s[0] == '-')
