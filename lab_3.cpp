@@ -78,6 +78,7 @@ struct Circle : Figure
     double r;
     double x;
     double y;
+
     Circle
     (
         double r,
@@ -162,6 +163,21 @@ struct Box : Figure
         Figure(stroke, stroke_size, fill, opacity) {};
 };
 
+ofstream& operator<<(ofstream& os, const Rect& r)
+{
+    os << "<rect width=\"" << r.width << "\"" <<
+        " height=\"" << r.height << "\"" << 
+        " rx=\"" << r.x << "\"" << 
+        " ry=\"" << r.y << "\"" << 
+        " stroke=\"" << r.stroke << "\"" << 
+        " stroke-width=\"" << r.stroke_width << "\"" <<
+        " fill=\"" << r.fill << "\"" <<
+        " opacity=\"" << r.opacity << "\"" <<
+        " />" << endl;
+
+    return os;
+}
+
 ofstream& operator<<(ofstream& os, const Line& l)
 {
     os << "<line x1=\"" << l.x1 << "\"" <<
@@ -223,21 +239,6 @@ ofstream& operator<<(ofstream& os, const Box& b)
         " stroke-width=\"" << b.stroke_width << "\"" << 
         " fill=\"" << b.fill << "\"" <<
         " opacity=\"" << b.opacity << "\""<<
-        " />" << endl;
-
-    return os;
-}
-
-ofstream& operator<<(ofstream& os, const Rect& r)
-{
-    os << "<rect width=\"" << r.width << "\"" <<
-        " height=\"" << r.height << "\"" << 
-        " rx=\"" << r.x << "\"" << 
-        " ry=\"" << r.y << "\"" << 
-        " stroke=\"" << r.stroke << "\"" << 
-        " stroke-width=\"" << r.stroke_width << "\"" <<
-        " fill=\"" << r.fill << "\"" <<
-        " opacity=\"" << r.opacity << "\"" <<
         " />" << endl;
 
     return os;
